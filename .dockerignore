@@ -25,4 +25,8 @@ Thumbs.db
 .env.*
 
 # Jupyter (not used in this repo)
+
 .ipynb_checkpoints/
+
+# AWS Keys
+*.pem
