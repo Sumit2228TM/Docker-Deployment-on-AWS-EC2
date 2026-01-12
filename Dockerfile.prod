@@ -1,0 +1,16 @@
+FROM python:3.10-slim
+
+WORKDIR /app
+
+# Copy requirements and install
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+# NOW we copy the code (different from dev!)
+COPY app.py .
+
+# Don't use --reload in production
+EXPOSE 8000
+
+# Production-ready server with multiple workers
+CMD ["uvicorn", "app:app", "--host", "0.0.0.0", "--port", "8000", "--workers", "2"]
