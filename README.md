@@ -1,4 +1,4 @@
-# 🚀 Production ML API Deployment with Docker & AWS EC2
+#  Production ML API Deployment with Docker & AWS EC2
 
 This repository demonstrates how to **package a Machine Learning API using Docker** and **deploy it to AWS EC2 in production**.
 
@@ -6,7 +6,7 @@ The focus of this project is **production readiness**.
 
 ---
 
-## 🎯 What This Project Covers
+##  What This Project Covers
 
 - Dockerizing a FastAPI-based ML inference service
 - Creating a **production Dockerfile**
@@ -17,7 +17,7 @@ The focus of this project is **production readiness**.
 
 ---
 
-## 🧠 ML Application Overview
+##  ML Application Overview
 
 The API serves a simple **Linear Regression model** using `scikit-learn`.
 
@@ -29,7 +29,7 @@ The ML logic is intentionally simple so the focus remains on **deployment and in
 
 ---
 
-## 📁 Project Structure
+##  Project Structure
 
 ```
 
@@ -42,7 +42,7 @@ docker-ml-deployment/
 
 ---
 
-## 🐳 Production Dockerfile
+##  Production Dockerfile
 
 ```dockerfile
 FROM python:3.10-slim
@@ -76,7 +76,7 @@ Slim base image for smaller size
 docker build -t ml-api:prod .
 ```
 
-## 🧪 Test Image Locally (Production Mode)
+##  Test Image Locally (Production Mode)
 ```
 docker run -d --name ml-prod-test -p 8000:8000 ml-api:prod
 ```
@@ -89,7 +89,7 @@ curl http://localhost:8000/
 
 Stop test container after verification.
 
-## 📦 Push Image to Docker Hub
+##  Push Image to Docker Hub
 
 ```
 docker login
@@ -100,9 +100,9 @@ docker push YOUR_DOCKERHUB_USERNAME/ml-api:v1
 
 This makes the image available for cloud deployment.
 
-## ☁️ Deploy to AWS EC2
+##  Deploy to AWS EC2
 
-1️⃣ Launch EC2 Instance
+1️ Launch EC2 Instance
 
 Ubuntu 22.04 LTS
 
@@ -114,12 +114,12 @@ SSH (22) – your IP
 
 TCP (8000) – public access
 
-2️⃣ Connect to EC2
+2️ Connect to EC2
 ```
 ssh -i ml-key.pem ubuntu@YOUR_EC2_PUBLIC_IP
 ```
 
-3️⃣ Install Docker on EC2
+3️ Install Docker on EC2
 ```
 sudo apt-get update
 sudo apt-get install -y docker.io
@@ -130,7 +130,7 @@ sudo usermod -aG docker ubuntu
 
 Re-login after adding user to docker group.
 
-4️⃣ Run the Production Container
+4️ Run the Production Container
 ```
 docker pull YOUR_DOCKERHUB_USERNAME/ml-api:v1
 
@@ -141,7 +141,7 @@ docker run -d \
   YOUR_DOCKERHUB_USERNAME/ml-api:v1
 ```
 
-## 🌐 Access Deployed API
+##  Access Deployed API
 
 Root: http://YOUR_EC2_PUBLIC_IP:8000/
 
@@ -149,7 +149,7 @@ Swagger UI: http://YOUR_EC2_PUBLIC_IP:8000/docs
 
 Prediction endpoint: /predict
 
-Your ML API is now live on the internet 🚀
+Your ML API is now live on the internet 
 
 
 ## 🏁 Summary
